@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Page</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c92d2);
+      background-size:400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color:white;
+      text-align:center;
+    }
+
+    @keyframes gradientBG{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    .container{
+      background: rgba(255,255,255,0.1);
+      padding:40px;
+      border-radius:20px;
+      backdrop-filter: blur(10px);
+      box-shadow:0 0 30px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease;
+    }
+
+    h1{
+      font-size:3em;
+      margin-bottom:10px;
+      animation: slideDown 1.5s ease;
+    }
+
+    p{
+      font-size:1.2em;
+      opacity:0.9;
+    }
+
+    .btn{
+      margin-top:20px;
+      padding:12px 25px;
+      border:none;
+      border-radius:25px;
+      background:white;
+      color:#1c92d2;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.1);
+      background:#1c92d2;
+      color:white;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    @keyframes slideDown{
+      from{transform:translateY(-50px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Bienvenidos a Electiva 2</h1>
+    <p>Este es el sitio web de la Electiva 2 del ITLA </p>
+    <p>Mi nombre es Ismael Polanco</p>
+    <p>matricula 2021-0293</p>
+    <button class="btn">Entrar</button>
+  </div>
+
+</body>
+</html>
