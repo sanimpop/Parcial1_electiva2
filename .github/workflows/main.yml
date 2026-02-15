@@ -1,4 +1,4 @@
-name: Prueba1
+name: Deploy  Surge
 
 on:
   push:
@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Clonar repositorio
         uses: actions/checkout@v3
 
+   
       - name: Instalar Node
         uses: actions/setup-node@v3
         with:
@@ -21,8 +23,14 @@ jobs:
       - name: Instalar Surge
         run: npm install -g surge
 
+  
+      - name: Listar archivos de publicación
+        run: ls -la ./Parcial1_electiva2
+
+
       - name: Deploy a Surge
-        run: surge $GITHUB_WORKSPACE ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-          SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
+        run: surge ./Parcial1_electiva2 ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+      # para ver por que no se esta desplegando bien, intento 3 xD
+      - name: Mostrar URL de producción
+        run: echo "✅ Página publicada en: ${{ secrets.SURGE_DOMAIN }}"
