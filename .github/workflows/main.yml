@@ -24,12 +24,12 @@ jobs:
       - name: Instalar Surge
         run: npm install -g surge
 
-      # 4️⃣ Verificar archivos antes de deploy
-      - name: Listar archivos de publicación
-        run: ls -la ./Parcial1_electiva2
+      # 4️⃣ Verificar archivos en la raíz
+      - name: Listar archivos de la raíz
+        run: ls -la
 
-      # 5️⃣ Deploy a Surge
+      # 5️⃣ Deploy a Surge desde la raíz
       - name: Deploy a Surge
         run: |
-          surge ./Parcial1_electiva2 ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
           echo "✅ Página publicada en: ${{ secrets.SURGE_DOMAIN }}"
