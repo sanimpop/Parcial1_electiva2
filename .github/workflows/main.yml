@@ -32,4 +32,4 @@ jobs:
       - name: Deploy a Surge
         run: |
           surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
-          echo "✅ Página publicada en: ${{ secrets.SURGE_DOMAIN }}"
+          echo "Página publicada en: ${{ secrets.SURGE_DOMAIN }}"
