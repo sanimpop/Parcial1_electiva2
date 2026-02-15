@@ -1,4 +1,4 @@
-name: Deploy  Surge
+name: Deploy a Surge
 
 on:
   push:
@@ -10,27 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+      # 1️⃣ Clonar repositorio
       - name: Clonar repositorio
         uses: actions/checkout@v3
 
-   
+      # 2️⃣ Instalar Node.js
       - name: Instalar Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      # 3️⃣ Instalar Surge globalmente
       - name: Instalar Surge
         run: npm install -g surge
 
-  
+      # 4️⃣ Verificar archivos antes de deploy
       - name: Listar archivos de publicación
         run: ls -la ./Parcial1_electiva2
 
-
+      # 5️⃣ Deploy a Surge
       - name: Deploy a Surge
-        run: surge ./Parcial1_electiva2 ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
-
-      # para ver por que no se esta desplegando bien, intento 3 xD
-      - name: Mostrar URL de producción
-        run: echo "✅ Página publicada en: ${{ secrets.SURGE_DOMAIN }}"
+        run: |
+          surge ./Parcial1_electiva2 ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          echo "✅ Página publicada en: ${{ secrets.SURGE_DOMAIN }}"
